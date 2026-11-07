@@ -1,0 +1,24 @@
+# Rust build output
+**/target/
+
+# Credentials and local configuration
+*token*
+*Token*
+账号.txt
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.cargo/credentials
+.cargo/credentials.toml
+
+# Editor and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Keep Cargo.lock, screenshots, and original terminal recordings.
