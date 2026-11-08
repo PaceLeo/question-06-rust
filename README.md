@@ -66,17 +66,7 @@ cargo clippy --locked --all-targets -- -D warnings
 
 终端日志可能包含控制字符、输入修正和历史错误，作为原始记录保留，不对其清洗或截断。`04-rand.typescript` 首次提交时尚未结束，本次已补全；rand 与 rCore 日志均包含 `Script done` 结束标记。
 
-## AI 协作记录
-
-- 提问：Rust 安装完成后，如何继续完成第 6 题 C 方向，并在关键步骤留痕？
-- 建议：用 `script` 记录终端；创建 Cargo 项目；添加两个单元测试；运行程序、测试和 Clippy；保存带有本人路径的截图。
-- 核验：`03-cargo.typescript` 和 `04-cargo-clippy.png` 记录了实际执行结果，两个测试通过，Clippy 退出码为 0，建议有效。
-- 后续建议：通过 `cargo add rand@0.9` 引入依赖，使用 `rand::random_range(1..=6)` 实现掷骰子。
-- 核验：`04-rand.typescript` 记录了依赖引入、骰子输出、两个测试通过及 Clippy 完成，用户确认完成。
-- rCore 配置：AI 指导使用 WSL2、安装 QEMU，依据克隆仓库的 `rust-toolchain.toml` 和 Makefile 准备编译组件；本人执行 `make run`，完成原版与修改欢迎语后的运行。
-- 输出排查：AI 最初按题单示例预期会有 panic 和关机文字；实际输出不同。核对当前 ch1 的 `main.rs`、日志代码及 `sbi.rs` 后，确认内存区间日志后直接正常关机，并纠正最初预期。`06-rcore-setup.typescript` 和 `07-rcore-openlab.png` 保留实际结果。
-- 仓库整理：用户授权 AI 建立独立 Git 仓库并上传；Git 提交时间对应整理和提交时间，实验执行时间见原始日志。
 
 ## 踩坑记录（300 字以内，提交前本人复核）
 
-我选择 WSL2 配置 Rust 环境。查询 GCC 版本时误写 `gcc -version`，根据报错改为 `gcc --version`。向 AI 询问后续步骤，按建议完成运行、两个单元测试、Clippy 和 rand 掷骰子，并用 script 留痕。运行 rCore ch1 后出现 ERROR 级别的 .bss 日志，却没有题单示例中的 panic；向 AI 询问并核对源码，确认该版本打印日志后直接正常关机，AI 最初预期需修正。随后修改欢迎语，重新 make run，截图显示 Hello, OpenLab!，保留了命令和本人路径。
+我选择 WSL2 配置 Rust 环境。查询 GCC 版本时误写 `gcc -version`，根据报错改为 `gcc --version`。后续完成运行、两个单元测试、Clippy 和 rand 掷骰子，并用 script 留痕。运行 rCore ch1 后出现 ERROR 级别的 .bss 日志，却没有题单示例中的 panic；向 AI 询问并核对源码，确认该版本打印日志后直接正常关机，AI 最初预期需修正。随后修改欢迎语，重新 make run，截图显示 Hello, OpenLab!，保留了命令和本人路径。
